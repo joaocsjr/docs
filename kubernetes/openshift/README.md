@@ -48,7 +48,7 @@ EDITOR=/usr/bin/vim
 
 ## Comandos basicos
 
-```bash 
+```zsh 
 # pega status do projeto
 oc status 
 
@@ -125,6 +125,18 @@ spec:
 ```
 
 # Deployments
+
+## Estrategias de rollout:
+- **Rolling:** *default no openshift, prove continuos update mantendo a disponibilidade da app*
+- **Recreate:**  *esta estrategia termina todos os pods que estão rodando antes de criar uma nova versão do deply*
+- **Canary ou Blue-green:**  *nessa estrategia vc deve criar um novo deploy, com a nova versão da app tb deve criar novos services, quando a app estiver pronta apenas reaponte o router para o novo service com a nova versão*
+
+
+
+
+
+
+
 
 
 
