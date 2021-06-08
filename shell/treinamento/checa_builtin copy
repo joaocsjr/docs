@@ -1,0 +1,17 @@
+#!/usr/bin/env bash 
+msg=" é preciso informar um comando valido"
+
+
+# testa a quantidade de argumentos passados 
+[[ $# -ne 1 ]] && echo $msg && exit 1
+
+
+
+# Aqui nos executamos o comando help...
+$1 &> /dev/null
+
+
+# e aqui nos temos a saida com o comando "test"
+[[ $? -eq 0 ]] && echo "$1 é inteiro!" || echo "$1 nao é inteiro!"
+
+exit 0
