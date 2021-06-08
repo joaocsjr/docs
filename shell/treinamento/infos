@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+clear
+
+echo ""
+echo "infos do sistema"
+echo "----------------------------------------------------------------"
+
+
+echo -n "Usuario: "
+whoami
+
+echo -n "Hosthame: "
+hostname
+
+echo -n "Uptime: "
+uptime -p
+
+echo -n "Kernel: "
+uname -rms
+
+echo -n "OS release: "
+cat /etc/redhat-release
+
+
+read -p "digite seu nome:" nome
+
+echo $nome
