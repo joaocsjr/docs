@@ -130,7 +130,7 @@ spec:
 - **Rolling:** *default no openshift, prove continuos update mantendo a disponibilidade da app*
 - **Recreate:**  *esta estrategia termina todos os pods que estão rodando antes de criar uma nova versão do deply*
 - **Canary ou Blue-green:**  *nessa estrategia vc deve criar um novo deploy, com a nova versão da app tb deve criar novos services, quando a app estiver pronta apenas reaponte o router para o novo service com a nova versão*
-
+-  **A-B Testing:**  *nessa estrategia vc pode criar 2 versoes de um frontend com visual diferente e configurar o trafego de rede para mandar conexoes 50/50 para cada versão, essa tecnica permite usar mais que 2 versões de backend*
 
 
 
