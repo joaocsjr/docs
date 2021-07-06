@@ -137,6 +137,47 @@ spec:
 
 
 
+# Volumes:
+
+## Persistentes volumes
+- **PV** = Persistentes volumes Montando em nivel de host ( NFS, ISCSI, FIBERCHANNEL etc)
+      NFS mounts
+      
+      GlusterFS
+      
+      Ceph® RBD
+      
+      AWS Elastic Block Store (EBS)
+      
+      Google GCE
+      
+      OpenStack® Cinder
+      
+      iSCSI
+      
+      Fibre Channel
+- **PVC** = Persistentes volumes Claim - consumido do PC e  montando em nivel de pod para persistir os dados do app
+    - Os desenvolvedores podem associar um PersistentVolumeClaim a um objeto, como uma configuração de deployment. o OpenShift monta o volume no pod.
+
+    - Os desenvolvedores podem criar um ou mais PersistentVolumeClaims usando PersistentVolumes para fornecer armazenamento persistente a seus projetos. 
+    
+   
+
+## Acess modes:
+
+- **ReadWriteOnce:** Volume pode ser montado como read/write por um unico node
+
+- **ReadOnlyMany:** Volume pode ser montado como read-only por varios nodes
+
+- **ReadWriteMany:** Volume pode ser montado como read/write por varios nodes
+
+## empyDir
+- diretorio temporario existe apenas enquanto o pod esta no ar 
+- iniciado vazio
+- criado quando o pod é criado 
+- é comportilhado entre os containers do mesmo pod 
+- Como todos os containers no pod podem ler e gravar no  emptyDir, ele  é útil para implantações chamadas de "sidecar" em que, por exemplo, o contêiner principal executa um serviço e registra localmente no disco, que neste caso é emptyDir.O contêiner secundário pode então pegar esse arquivo de log e transmiti-lo para um serviço de registro.
+
 
 
 

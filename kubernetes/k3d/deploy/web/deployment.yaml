@@ -2,7 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: movies
-spec:  
+spec:
+  replicas: 10  
   selector:
     matchLabels:
       app: movies
@@ -13,9 +14,9 @@ spec:
     spec: 
       containers:
         - name: movies
-          image: joaocsjr/app-python:v1
+          image: joaocsjr/app-python:v2
           ports:
-            - containerPort: 5000
+            - containerPort: 50003
           env: 
             - name: MONGODB_DB
               value: admin
