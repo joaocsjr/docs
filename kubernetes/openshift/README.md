@@ -1,29 +1,7 @@
 # Notas do treinamento Openshift
- **É recomendavel usar em ambientes de Teste/Desenvolvimento**.
-chama
 
 
-IPvTmxRcGBbp
 
-# Index
-- [Openshift](#Openshift-4.x)
-    - [Anatomia de um arquivo de manifesto](#anatomia-de-um-arquivo-de-manifesto)
-    - [YAML Basico](#YAML-Basico)
-    - [Comandos basicos](#Comandos-basicos)
-    - [Exemplos](#Exemplos)
-        - [Deployment](#Deployment)
-        - [Service](#Service)
-        - [Route](#Route)
-    - [Intalando Ansible](#intalando-ansible)
-    - [Instalando Docker ](#instalando-docker)
-        - [Docker SDK para Python](#docker-sdk-para-python)
-        - [Docker Compose](#docker-compose)
-    - [Instalando Node e NPM](#instalando-node-e-npm)
-    - [Instalando Ansible AWX](#instalando-ansible-awx)
-- [Ubuntu](#ubuntu)
-- [Para mais Informações](#para-mais-informações)
-
-# Openshift 4.x
 
 ## Anatomia de um arquivo de manifesto
 
@@ -255,15 +233,15 @@ spec:
 
 ## Beneficios 
 
-- Feedback rápido: quando uma build é executada, os membros da equipe são imediatamente notificados sobre o status da build. Isso reduz o tempo necessário para descobrir e corrigir quaisquer novos defeitos
+- **Feedback rápido:** quando uma build é executada, os membros da equipe são imediatamente notificados sobre o status da build. Isso reduz o tempo necessário para descobrir e corrigir quaisquer novos defeitos
 
-- Risco reduzido: Ao integrar várias vezes ao dia, você pode reduzir os riscos em seu projeto. Bugs são detectados e corrigidos mais cedo. A integridade do software é mensurável por meio de testes unitarops e relatórios de inspeção de código.
+- **Risco reduzido:** Ao integrar várias vezes ao dia, você pode reduzir os riscos em seu projeto. Bugs são detectados e corrigidos mais cedo. A integridade do software é mensurável por meio de testes unitarops e relatórios de inspeção de código.
 
-- Team Ownership: Com a CI, não existe mais uma situação de "nós" versus "eles". Todos os membros da equipe recebem relatórios regulares sobre o status da build. Isso permite maior visibilidade do projeto, onde todos podem perceber tendências e tomar decisões eficazes. Isso também aumenta a confiança para adicionar novos recursos ao projeto, porque todos estão atualizados sobre o funcionamento atual do projeto.
+- **Team Ownership:** Com a CI, não existe mais uma situação de "nós" versus "eles". Todos os membros da equipe recebem relatórios regulares sobre o status da build. Isso permite maior visibilidade do projeto, onde todos podem perceber tendências e tomar decisões eficazes. Isso também aumenta a confiança para adicionar novos recursos ao projeto, porque todos estão atualizados sobre o funcionamento atual do projeto.
 
-- Build de software implantável: O processo de build deve gerar software que pode ser implantado. Todos estão se esforçando para criar um software que possa ser implantado a qualquer momento. Isso não significa que você deve implantar o software, mas que é um bom release candidate se quiser implantar. Hoje, muitas equipes de desenvolvimento lutam com esse cenário.
+- **Build de software implantável:** O processo de build deve gerar software que pode ser implantado. Todos estão se esforçando para criar um software que possa ser implantado a qualquer momento. Isso não significa que você deve implantar o software, mas que é um bom release candidate se quiser implantar. Hoje, muitas equipes de desenvolvimento lutam com esse cenário.
 
-- Processo automatizado: automatizar a build economiza tempo, custos e esforço. Além disso, o processo é executado sempre da mesma forma. Liberar os desenvolvedores da execução de processos repetitivos permite que eles se concentrem em trabalhos de maior valor.
+- **Processo automatizado:** automatizar a build economiza tempo, custos e esforço. Além disso, o processo é executado sempre da mesma forma. Liberar os desenvolvedores da execução de processos repetitivos permite que eles se concentrem em trabalhos de maior valor.
 
 
 
