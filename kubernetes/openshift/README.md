@@ -196,9 +196,7 @@ spec:
 
 
 
-
-
-
+--------------
 
 # Openshift Configuration 
 
@@ -216,6 +214,68 @@ spec:
 - O cliente inclui o token OAuth em cabeçalhos HTTP em solicitações de API subsequentes.
 
 - O token OAuth expira após um intervalo de tempo configurável - o padrão é 24 horas - e o usuário deve se autenticar novamente.
+
+- Você pode recuperar a lista de tokens OAuth ativos e identificar quais usuários estão conectados usando ```oc get oauthaccesstokens```.
+
+- Uma vez conectado ao cluster, você pode consultar a sessão atual via ```  oc whoami```.
+
+- O LDAP é um componente comum da infraestrutura de gerenciamento de identidade e acesso.
+
+- LDAP TLS, é o padrão recomendado para autenticação, para isso ocorrer é necessário a criaçao de um configmap no namespace openshift-config, com a chave do certificado ca.crt ``` 
+oc create configmap ldap-tls-ca -n openshift-config \
+    --from-file=ca.crt=PATH_TO_LDAP_CA_FILE ```
+
+
+- **RBAC** - controlas os objetos e determina o que pode ser feito com eles, quais verbos podem ser usados para gerenciar o objeto]
+
+- ***Roles e ClusterRoles*** definem ações permitidas para tipos de recursos. As funções são definidas em um namespace de projeto e só podem ser usadas nesse namespace. ClusterRoles pode ser aplicado a todo o cluster ou a um namespace específico.
+
+
+- ***RoleBindings*** concedem acesso mapeando um Role ou ClusterRole para usuários ou grupos para acesso a recursos dentro de um namespace de projeto.
+
+- ***ClusterRoleBindings*** concedem acesso a tipos de recursos com escopo de cluster ou tipos de recursos em qualquer namespace.
+
+
+- ***ClusterRoleBindings*** concedem acesso a tipos de recursos com escopo de cluster ou tipos de recursos em qualquer namespace.
+
+- ***RoleBindings ou ClusterRoleBindings*** são um tipo de recurso no OpenShift. O acesso para criar esses recursos permite que um usuário conceda acesso a outros usuários ou grupos, mas o OpenShift impede que um usuário conceda acesso que o usuário não possui.
+
+- **Service account** Quando os aplicativos precisam de acesso à API de cluster OpenShift, eles podem usar uma conta de serviço para autenticação e autorização.
+
+- Cada pod rodando no Red Hat OpenShift Container Platform tem uma conta de serviço associada, e aplicativos externos podem ser integrados ao cluster usando credenciais de conta de serviço
+
+- As contas de serviço OpenShift são tratadas como um tipo de usuário cujo acesso pode ser gerenciado com o controle de acesso baseado em função OpenShift
+
+-  Por exemplo, **DeploymentConfigs** são implementados usando um pod de implantador que é executado com uma conta de serviço de implantador. Os aplicativos em contêineres de pod podem fazer chamadas de API para fins de descoberta. Os servidores Jenkins usam a API de cluster para criar agentes em execução em contêineres. E os operadores usam a API de cluster para monitorar recursos personalizados e a API para gerenciar ConfigMaps, implantações e outros.
+
+
+- **Security context constraints**  Ao contrário das políticas de autorização, que controlam o que um usuário pode fazer, restrições de contexto de segurança ou SCCs, controlam as ações que um pod pode realizar e o que pode acessar. SCCs são objetos que definem um conjunto de condições com as quais um pod deve ser executado para ser aceito no sistema.
+
+
+# Resource manager
+
+- O gerenciamento de recursos na Red Hat OpenShift Container Platform é um tópico amplo e importante. É o planejamento e exercício do uso controlado dos recursos limitados em um cluster
+
+- Os recursos necessários para as cargas de trabalho não são infinitos, esteja você em um ambiente de nuvem pública ou em um data center local. Controlar o uso desses recursos é uma função que muitas vezes é negligenciada ou recebe atenção mínima.
+
+- No Kubernetes, as solicitações e os limites são, em seu nível mais básico, mínimos e máximos que um contêiner pode consumir de recursos específicos. Eles são aplicados a contêineres, não a vagens.
+
+- Uma request é a quantidade mínima de um recurso que o contêiner requer para ser executado. Esse valor pesa muito no agendador, pois ele decide em qual nó colocar um pod recém-solicitado. Isso Também tem um grande impacto nos cálculos de utilização de recursos que o Kubernetes faz para a capacidade do nó no cluster.
+
+- Um limit é a quantidade máxima de um recurso que o contêiner pode consumir. Dependendo do tipo de recurso que você está controlando, como CPU ou memória, o Kubernetes reage de maneira diferente se o contêiner tentar exceder esse máximo.
+
+- QOS - são atribuídas automaticamente a todos os pods pelo Kubernetes. Essas classes de QoS não podem ser definidas especificamente pelo usuário que está solicitando o pod. Eles podem, no entanto, ser influenciados pela especificação do pod.
+
+- **BestEffort** Aplicado quando as requests do contêiner e os limite não estão definidos
+
+- **Burstable** Aplicado quando as requests do contêiner são definidas, mas os limits não são definidos ou são superiores à solicitação
+
+- **Guaranteed** Aplicado quando o contêiner requests e limits definidos com o mesmo valor
+
+
+
+
+
 
 
 
@@ -242,24 +302,6 @@ spec:
 - **Build de software implantável:** O processo de build deve gerar software que pode ser implantado. Todos estão se esforçando para criar um software que possa ser implantado a qualquer momento. Isso não significa que você deve implantar o software, mas que é um bom release candidate se quiser implantar. Hoje, muitas equipes de desenvolvimento lutam com esse cenário.
 
 - **Processo automatizado:** automatizar a build economiza tempo, custos e esforço. Além disso, o processo é executado sempre da mesma forma. Liberar os desenvolvedores da execução de processos repetitivos permite que eles se concentrem em trabalhos de maior valor.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 # Ubuntu
