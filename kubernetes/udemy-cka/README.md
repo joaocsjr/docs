@@ -4,6 +4,12 @@
 ![https://blog.geekhunter.com.br/wp-content/uploads/2019/04/logo-kubernetes-arquitetura-de-cluster-3.png](https://blog.geekhunter.com.br/wp-content/uploads/2019/04/logo-kubernetes-arquitetura-de-cluster-3.png)
 
 
+
+> Arquitetura 
+
+
+![https://d33wubrfki0l68.cloudfront.net/2475489eaf20163ec0f54ddc1d92aa8d4c87c96b/e7c81/images/docs/components-of-kubernetes.svg](https://d33wubrfki0l68.cloudfront.net/2475489eaf20163ec0f54ddc1d92aa8d4c87c96b/e7c81/images/docs/components-of-kubernetes.svg)
+
 > ETCD
 - [ ]  Banco chave valor 
 - [ ]  Roda na porta 2379
