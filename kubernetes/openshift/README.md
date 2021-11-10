@@ -358,15 +358,38 @@ oc create configmap ldap-tls-ca -n openshift-config \
 - As labels são usadas para agrupar objetos e indicar para eles quais são os respectivos **pods** relacionados aquele replication controller ou **service**
 
 
+ # Openshift application deployment 
+
+- Outro recurso do DeploymentConfigs é que, se a implantação de uma nova versão resultar em um erro, o DeploymentConfig reverterá automaticamente para a versão de trabalho anterior. Ele espera 10 minutos por padrão e, se o aplicativo ainda não estiver pronto, a revisão com falha é excluída e a revisão DeploymentConfig anterior é lançada.
+
+- Existem outras diferenças entre Deployments e DeploymentConfigs que são descritas na seção Comparing Deployments and DeploymentConfigs da documentação da OpenShift Container Platform.
+
+- A documentação descreve a diferença da seguinte maneira:
+
+  - Uma diferença importante entre Deployments e DeploymentConfigs são as propriedades do teorema CAP que cada projeto escolheu para o processo de distribuição. DeploymentConfigs preferem consistência, enquanto as implementações têm preferência por disponibilidade em vez de consistência.
+
+  - Para DeploymentConfigs, se um nó que executa um pod do implantador ficar inativo, ele não será substituído. O processo espera até que o nó volte a ficar online ou seja excluído manualmente. Excluir manualmente o nó também exclui o pod correspondente. Isso significa que você não pode excluir o pod para desfazer a implementação, pois o kubelet é responsável por excluir o pod associado.
+
+  - No entanto, as implementações de implantação são conduzidas por um gerenciador de controlador. O gerenciador de controlador é executado no modo de alta disponibilidade em mestres e usa algoritmos de eleição de líder para valorizar a disponibilidade em vez da consistência. Durante uma falha, é possível que outros mestres atuem na mesma implantação ao mesmo tempo, mas esse problema é resolvido logo após a ocorrência da falha.
+
+- Implementações e ReplicaSets são considerados a forma preferencial de implementação de aplicativos. Por outro lado, quando você usa o comando oc new-app, ele cria DeploymentConfigs e ReplicationControllers. É uma boa ideia estar familiarizado com os dois métodos. Este laboratório fornece uma visão geral rápida de suas semelhanças e diferenças
 
 
 
+#  Machine API 
+
+- É a combinacao de recursos primarios baseados no projeto de desenvoltvimento da API do cluster updatream e o Openshift container plataform resources.
+
+- Existem 2 recursos primarios
+
+    - **machines** - principal unidade, descreve o host para um node 
+
+    - **machineSet** - Grupo de machines, machineset estao para as machines como o replicaset esta para o pod, a quantidade de replicas e controlada atraves do machineset,  Machine Controllers provisionam e desprovisionam machines e nodes 
+
+- Recursos criados no namespace de Machine API ***openshift-machine-api*** nao fazem parte do escopo do cluster  
 
 
-
-
-
-
+-  **O Machine API operator** gerencia o ciclo de vida, dos objetos para esse proposito extendendo a capacidade da AP do kubernetes, isso permite controlar o estado desejado  das maquinas dentro do cluster 
 
 
 

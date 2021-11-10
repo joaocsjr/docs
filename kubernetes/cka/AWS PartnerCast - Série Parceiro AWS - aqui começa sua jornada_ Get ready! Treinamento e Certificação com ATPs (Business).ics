@@ -1,0 +1,77 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+METHOD:PUBLISH
+PRODID:-//LogMeIn//GoToWebinar//EN
+X-MS-OLK-FORCEINSPECTOROPEN:TRUE
+BEGIN:VTIMEZONE
+TZID:America/Sao_Paulo
+LAST-MODIFIED:20201011T015911Z
+TZURL:http://tzurl.org/zoneinfo-outlook/America/Sao_Paulo
+X-LIC-LOCATION:America/Sao_Paulo
+BEGIN:STANDARD
+TZNAME:-03
+TZOFFSETFROM:-0300
+TZOFFSETTO:-0300
+DTSTART:19700101T000000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTAMP:20210824T135755Z
+DTSTART;TZID=America/Sao_Paulo:20210915T100000
+DTEND;TZID=America/Sao_Paulo:20210915T110000
+SUMMARY:GoToWebinar - AWS PartnerCast - Série Parceiro AWS - aqui começa 
+ sua jornada: Get ready! Treinamento e Certificação com ATPs (Business)
+LOCATION:GoToWebinar - See conference call information below
+UID:1207794125@logmein.com
+ORGANIZER:hirokd@amazon.com
+DESCRIPTION:1. Click and join at the specified time and date:\nhttps://gl
+ obal.gotowebinar.com/join/2761086319531029263/535667417\nNote: This link
+  should not be shared with others\; it is unique to you.\n\n2. Choose on
+ e of the following audio options:\n\nTO USE YOUR COMPUTER'S AUDIO:\nWhen
+  the Webinar begins\, you will be connected to audio using your computer
+ 's microphone and speakers (VoIP). A headset is recommended.\n\n-- OR --
+ \n\nTO USE YOUR TELEPHONE:\nIf you prefer to use your phone\, you must s
+ elect "Use Telephone" after joining the webinar and call in using the nu
+ mbers below.\n\nEstados Unidos (Toll-free): 1 877 309 2074\nEstados Unid
+ os: +1 (213) 929-4221\n	Access Code: 297-991-880\n	Audio PIN: Shown afte
+ r joining the webinar\n\nNa dúvida sobre por onde começar a se preparar?
+  Nessa sessão\, confira os treinamentos e certificações da AWS e comece 
+ a planejar sua rota de especialização.\nTemas cobertos:\nO valor de obte
+ r certificações AWS\nRotas de Aprendizagem \nO que é um AWS Training Par
+ tner (ATP) e valor agregado\nBeneficios de Treinamento e Certificação (c
+ réditos e descontos)\nDemo no Portal APN \nQ&A\n\n\nObrigado por express
+ ar interesse na sessão do AWS PartnerCast. Para se registrar na sessão m
+ encionada acima\, preencha os campos obrigatórios (*).\n
+X-ALT-DESC;FMTTYPE=text/html:<HTML><HEAD><TITLE></TITLE><BODY><FONT SIZE=
+ 2><b>1. Click and join at the specified time and date:</b></FONT><BR><FO
+ NT SIZE=2>https://global.gotowebinar.com/join/2761086319531029263/535667
+ 417</FONT><BR><FONT SIZE=2>Note: This link should not be shared with oth
+ ers\; it is unique to you.</FONT><BR><BR><FONT SIZE=2><FONT SIZE=2><b>2.
+  Choose one of the following audio options:</b></FONT><BR><BR><FONT SIZE
+ =2>TO USE YOUR COMPUTER'S AUDIO:</FONT><BR><FONT SIZE=2>When the Webinar
+  begins\, you will be connected to audio using your computer's microphon
+ e and speakers (VoIP). A headset is recommended.</FONT><BR><BR><FONT SIZ
+ E=2>-- OR --</FONT><BR><BR><FONT SIZE=2>TO USE YOUR TELEPHONE:</FONT><BR
+ ><FONT SIZE=2>If you prefer to use your phone\, you must select "Use Tel
+ ephone" after joining the webinar and call in using the numbers below.</
+ FONT><BR><BR><FONT SIZE=2>Estados Unidos (Toll-free): 1 877 309 2074</FO
+ NT><BR><FONT SIZE=2>Estados Unidos: +1 (213) 929-4221</FONT><BR><FONT SI
+ ZE=2>&nbsp\;&nbsp\;&nbsp\;&nbsp\;</FONT><FONT SIZE=2>Access Code: 297-99
+ 1-880</FONT><BR><FONT SIZE=2>&nbsp\;&nbsp\;&nbsp\;&nbsp\;</FONT><FONT SI
+ ZE=2>Audio PIN: Shown after joining the webinar</FONT><BR></BODY></HTML>
+ </FONT><BR><FONT SIZE=2>Na dúvida sobre por onde começar a se preparar? 
+ Nessa sessão\, confira os treinamentos e certificações da AWS e comece a
+  planejar sua rota de especialização.\nTemas cobertos:\nO valor de obter
+  certificações AWS\nRotas de Aprendizagem \nO que é um AWS Training Part
+ ner (ATP) e valor agregado\nBeneficios de Treinamento e Certificação (cr
+ éditos e descontos)\nDemo no Portal APN \nQ&A\n\n\nObrigado por expressa
+ r interesse na sessão do AWS PartnerCast. Para se registrar na sessão me
+ ncionada acima\, preencha os campos obrigatórios (*).</FONT><BR></BODY><
+ /HTML>
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+END:VCALENDAR
