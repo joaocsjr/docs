@@ -15,10 +15,11 @@
 <br> 
 
 > ETCD
--   Banco chave valor 
--   Roda na porta 2379
--   etcdctl command line 
- 
+ - ### Caracteristicas
+    -   Banco chave valor 
+    -   Roda na porta 2379
+    -   etcdctl command line 
+     
 ``` bash
 
 # o pod do etcd roda no namespace do kube-system
@@ -32,23 +33,23 @@ kubectl exec etcd-master –n kube-system etcdctl get / --prefix –keys-only
 <br>
 
 > ### Kube-api server
-
--  Responsavel por todas as transaçoes que são feitas com o etcd 
-- controla o fluxo de autenticação:
+  - ### Função
+    -   todas as transaçoes que são feitas com o etcd 
+    - controla o fluxo de autenticação:
   
+  <br>
+
   >**FLUXO de consulta**
+   - Quando executamos qualquer comando, as interações são feitas com a api-server 
 
-   ```
-    kubectl get pods
-     ```
+      1. Autentica o user
+      1. verifica a se a requisicão e valida
+      2. Em caso de consulta o dado solicitado no etcd, em caso de novo item 4
+      3. atualiza o etcd
+      4. O scheduler verifica o apiserver, percebe que um novo pod foi criado, apos isso ele determina qual node vai executar aquele pod e informa o kubelet 
+      5. kubelet interage com o container runtime e executa o pod conforme especificado
+ 
 
-  1. Autentica o user
-  2. verifica a se a requisicão e valida
-  3. Em caso de consulta o dado solicitado no etcd, em caso de novo item 4
-  4. atualiza o etcd
-  5. O scheduler verifica o apiserver, percebe que um novo pod foi criado, apos isso ele determina qual node vai executar aquele pod e informa o kubelet 
-  6. kubelet interage com o container runtime e executa o pod conforme especificado
-   
 <br>
 
 
@@ -66,24 +67,50 @@ kubectl exec etcd-master –n kube-system etcdctl get / --prefix –keys-only
   - Pod Eviction timeout = 5m 
 
 - [x] Replication controller 
-  - Gerencia dos replications sets
+  - Gerencia dos replica sets
 
 
 <br>
 
 
 > ### Kube Scheduler
-
-- Responsavel por verificar em qual node o pod deve ser executado
-- Utiliza metricas de capacity para realizar o ranking e determinar qual node tem recursos suficientes para executar aquele pod 
+  - ### Função
+    -  verificar em qual node o pod deve ser executado
+    - Utiliza metricas de capacity para realizar o ranking e determinar qual node tem recursos suficientes para executar aquele pod 
 
 
 <br>
 
 > ### Kubelet 
+  - ### Função : 
+    -  realizar as config para inclusao do node no cluster 
+    -  executar ou matar um container em um node usando as instrucoes do scheduler
+    -  enviar informacoes para o master sobre o status de um pod 
+    - Realiza a interacao com o container engine para baixar a imagem do registry no worker node e executar o pod 
+    - Monitora  o api server para saber sobre as alterações
+    - Responsavel pelo lifecycle do pod
+    - Reporta informações sobre os nodes e pods 
+    - Pod probes
+    - ***Kubeadm nao instala o kubelet, precisa ser instalado manualmente***
+- 
+    
+<br>
 
-- Responsavel por realizar as config para inclusao do node no cluster 
-- Responsavel por executar ou matar um container em um node usando as instrucoes do scheduler
-- Responsavel por enviar informacoes para o master sobre o status de um pod 
-- Realiza a interacao com o container engine para baixar a imagem do registry no worker node e executar o pod 
-- ***Kubeadm nao instala o kubelet, precisa ser instalado manualmente***
+> ### Kube-proxy
+  - ### Função:
+    - Comunicação entre os pods 
+    - Gerenciamento dos services 
+    - iptables 
+    - routing e traffic para os pods 
+    - Load Balance
+    - 
+
+
+<br>
+
+> ### Container Runtime
+  - ### Função:
+    - Download das imagens
+    - Execução dos containers
+    - Container runtime interface
+  - 
